@@ -1,6 +1,4 @@
 
-["ESL_SC2", "OgamingSC2", "imaqtpie", "TwitchPresents", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"]
-
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -22,8 +20,9 @@ function getCookie(cname) {
     }
     return "";
 }
-
-setCookie("streamList",'"ESL_SC2","OgamingSC2","imaqtpie","TwitchPresents","freecodecamp","storbeck","habathcx","RobotCaleb","noobs2ninjas"',30)
+if (getCookie("streamList")=="") {
+    setCookie("streamList",'"ESL_SC2","OgamingSC2","imaqtpie","TwitchPresents","freecodecamp","storbeck","habathcx","RobotCaleb","noobs2ninjas"')
+}
 var streamers = getCookie("streamList").substring(1,getCookie("streamList").length-1).split('","');
 $(document).ready(function(){
   for (var streamer in streamers) {
