@@ -2,7 +2,5 @@
 
 https://calumptrck.github.io/TwitchViewer/
 
-### todo 
- - fix cookies
+### todo
  - remove streamer button
-
