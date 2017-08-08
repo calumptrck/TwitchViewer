@@ -152,11 +152,3 @@ a:hover, a:visited, a:link, a:active {
     text-decoration: none;
     color: #fff;
 }
-
-.card-footer {
-  width:60%;
-  display:inline;
-  overflow: auto;
-  white-space: nowrap;
-  margin:0px auto;
-}
