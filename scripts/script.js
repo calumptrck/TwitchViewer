@@ -24,6 +24,7 @@ if (getCookie("streamList")=="") {
     setCookie("streamList",'"ESL_SC2","OgamingSC2","imaqtpie","TwitchPresents","freecodecamp","storbeck","habathcx","RobotCaleb","noobs2ninjas"')
 }
 var streamers = getCookie("streamList").substring(1,getCookie("streamList").length-1).split('","');
+
 $(document).ready(function(){
   for (var streamer in streamers) {
     getUserContent(streamers[streamer]);
@@ -37,7 +38,7 @@ $(document).ready(function(){
 
   $('.bAdd').click(function(){
     streamers.unshift($('.iAdd').val());
-    setCookie("streamList","\""+streamers.join("\",\"")+"\"",30)
+    setCookie("streamList","\""+streamers.join("\",\"")+"\"",30);
     console.log("\""+streamers.join("\",\"")+"\"");
     $('.content').html("");
     for (var streamer in streamers) {
@@ -113,6 +114,18 @@ function addCard([name,desc,status,viewers,image,profile,url]) {
       </div> \
   </div>'
   $('.content').append(cardHTML);
+}
+
+function removeStreamer(name) {
+  var ind = streamers.indexOf(name);
+  if (ind > -1) {
+    streamers.splice(ind, 1);
+  }
+  setCookie("streamList","\""+streamers.join("\",\"")+"\"",30);
+  $('.content').html("");
+  for (var streamer in streamers) {
+    getUserContent(streamers[streamer]);
+  }
 }
 
 function getUserContent(streamer) {
